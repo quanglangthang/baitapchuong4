@@ -1,0 +1,275 @@
+#include<iostream>  //bai tap chuong 1 (not done)
+#include<cmath>
+using namespace std;
+void ten_sixteen (int n);
+void ten_eight (int n);
+
+void bai1 (int);
+void bai2 (int);
+void bai3 (int);
+void bai4 (int);
+void bai5 (int);
+void bai6 (int);
+void bai7 (int); 
+void bai8 (int);
+void bai9 (int);
+
+int main()
+{
+	int n;
+	cout<<"Bai tap chuong 1\n\n"
+		<<"0.Thoat"<<endl //xong
+		<<"1.Tim tuoi trung binh cua nhom n nguoi choi"<<endl //xong
+		<<"2.Di cho"<<endl //xong
+		<<"3.Tim giai thua cua 1 so n nhap vao"<<endl // xong
+		<<"4.Kiem tra so nguyen to"<<endl // xong nhung khong hay, nen lam lai
+		<<"5.N so dau tien cua day fibonacci"<<endl //xong
+		<<"6.Chuyen 1 so nhi phan sang so thap phan"<<endl //xong
+		<<"7.Thap phan sang he bat ky"<<endl //tam duoc
+		<<"8.Xac dinh cac so nguyen to trong day tu 1 den n"<<endl //xong  , nen suy nghi them cach khac
+		<<"9.Kiem tra 1 ky tu la hoa hay thuong sau do hoan doi sang ky tu con lai"<<endl; //xong
+	cin>>n;
+	system ("cls");
+	switch (n)
+	{
+		case 0: return 0;
+		case 1: bai1 (n);
+		break;
+		case 2: bai2 (n);
+		break;
+		case 3: bai3 (n);
+		break;
+		case 4: bai4 (n);
+		break;
+		case 5: bai5 (n);
+		break;
+		case 6: bai6 (n);
+		break;
+		case 7: bai7 (n);
+		break;
+		case 8: bai8 (n);
+		break;
+		case 9: bai9 (n);
+		break;
+		default :cout<<"Khong xac dinh ";
+		break;
+	}
+	
+}
+void bai1 (int n) // Tuoi cua nhom n nguoi choi
+{
+	cout<<"Nhap so nguoi choi : ";
+	float s=0.0;
+	int a;
+	cin>>a;
+	for (int i=1; i<=a; i++)
+	{
+		cout<<"Nguoi thu "<<i<<": ";
+		cin>>n;
+		s+=n;
+	}
+	cout<<"\nVay tuoi trung binh cua nhom "<<a<<" nguoi choi la : "<<s/a;
+}
+
+void bai2 (int n) // Di cho
+{
+	cout<<"Bang gia: \n"<<"1.Ca chua 10k/kg\n"<<"2.Tao 6k/kg\n"<<"3.Khoai tay 5,5k/kg\n"<<"4.Xoai 4,75k/kg\n"<<"5.Ket thuc\n\n ";
+	float cc,t,kt,x,s=0.0;
+	int loai,i;
+	while (s>=0)
+	{
+		cout<<"Chon loai ";
+		cin>>loai;
+		if (loai == 5)
+		{
+			s+=cc+t+x+kt;
+			break;
+		}
+		switch (loai)
+		{
+			case 1: cout<<"\nCa chua : So luong : ";
+			cin>>i;
+			cc=10*i;
+			break;
+			case 2: cout<<"\nTao : So luong : ";
+			cin>>i;
+			t=6*i;
+			break;
+			case 3: cout<<"\nKhoai tay : So luong : ";
+			cin>>i;
+			kt=5.5*i;
+			break;
+			case 4: cout<<"\nXoai : So luong : ";
+			cin>>i;
+			x=4.75*i;
+			break;
+			case 5: cout<<"Ket thuc";
+			break; 
+		}
+		
+	}
+	cout<<"\nVay cai gia phai tra la "<<s;
+}
+
+void bai3 (int n) //Giai thua cua 1 so n
+{
+	int a,s=1;
+	cout<<"Nhap 1 so nguyen bat ki : ";
+	cin>>a;
+	for (int i=1; i<=a; i++)
+	{
+		s*=i;
+	}
+	cout<<"\nGiai thua cua so da nhap la : "<< s ;
+}
+
+void bai4 (int n) //Check so nguyen to
+{
+	int a;
+	cout<<"Nhap 1 gia tri can kiem tra : ";
+	cin>>a;
+	if (a>=2)
+	{	
+		for (int i=2; i<a ; i++)
+		{
+			if (a%i==0)
+			{
+				cout<<a<<" khong la so nguyen to";
+				break;
+			}
+			if (a%i!=0 || a==2)
+			{
+				cout<<a<<" la so nguyen to";
+				break;
+			}
+		}
+	if (a==2) cout<<a<<" la so nguyen to";
+	}
+	else cout<<a<<" khong la so nguyen to";
+}
+
+void bai5 (int n) //n phan tu day fibonacci
+{
+	cout<<"Chon n so dau tien cua day fibonacci : ";
+	int num;
+	cin>>num;
+	unsigned int a[1000];
+	a[0]=1;
+	a[1]=1;
+	cout<<a[0]<<" "<<a[1]<<" ";
+	for (int i=2;i<num; i++)
+	{
+		a[i]=a[i-1] + a[i-2];
+		cout<<a[i]<<" ";
+	}
+}
+
+void bai6 (int n) //2 - 10
+{
+	cout<<"Nhap 1 so nhi phan bat ky co do dai gioi han : ";
+	int a,du,dem=0,save=0;
+	cin>>a;
+	for (int i=0; a/=10 > 0 ; i++)
+	{
+		du=a%10;
+		save+=du * pow (2,i);
+		a/=10;
+	}
+	cout<<"Gia tri thap phan la : "<<save;
+}
+
+void bai7 (int n) //10 - 2 || -16 || -8
+{
+	int a, du, s=0;;
+	cout<<"Nhap so bat ky he thap phan : ";
+	cin>>a;
+	cout<<"Chon he muon doi : ";
+	int b;
+	cin>>b;
+	switch (b)
+	{
+		case 2:	for (int i=0; a>0; i++)
+				{
+					du=a%2;
+					s+=du * pow(10,i);
+					a/=2;
+				}
+				cout<<"Gia tri cua so he nhi phan la "<<s;
+				break;
+		case 8: ten_eight (a);
+				break;
+		case 16: ten_sixteen (a);
+				break;
+		default : cout<<"Khong xac dinh";
+				break;
+	}
+	
+}
+
+void bai8 (int n) // xac dinh cac so gnuyen to trong day tu 1 den n
+{
+	cout<<"Nhap 1 so bat ky : ";
+	int a;
+	cin>>a;
+	if (a==2) cout<<a;
+	else if (a<=1) cout<<"Khong xac dinh";
+	else {
+	cout<<"2 ";
+		for (int i=3; i<=a; i++)
+		{
+			for (int c=2; c<=i; c++)
+			{
+				if (c==i)
+				{
+					cout<<c<<" ";
+					break;
+				}
+				if (i%c==0)
+				{
+					break ;
+				}
+			}	
+		}
+		
+	}
+}
+
+void ten_eight (int n) //bai 7
+{
+	int du,s=0;
+	for (int i=0; n%8>0; i++)
+	{
+		du=n%8;
+		s+=du * pow (10,i);
+		n/=8;
+	}
+	cout<<"Gia tri cua he bat phan la "<<s;
+}
+void ten_sixteen (int n) //bai 7
+{
+	int du,s=0;
+	for (int i=0; n%16>0; i++)
+	{
+		du=n%16;
+		s+=du * pow (10,i);
+		n/=16;
+	}
+	if (s>=10 && s<=15) //???
+	{
+		for (char b=65; b<=69;b++ )
+		continue;
+	}
+	cout<<"Gia tri cua he thap luc phan la "<<s;
+}
+
+void bai9 (int n)
+{
+	cout<<"Nhap vao 1 ky tu : ";	
+	char b;
+	cin>>b;
+	if ((int) b>='A' && (int) b<='Z' )
+	b+=32;
+	if ((int)b>='a' && (int) b<='z' )
+	b-=32;
+	cout<<"Ket qua mong muon la : "<<b;
+} 
